@@ -1,0 +1,73 @@
+{% extends 'BASEE.html' %}
+{% block farmer %}active{% endblock %}
+{% load static %}
+{% block body %}
+
+
+<div class="all-title-box">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2>My Account</h2>
+                <!-- <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Shop</a></li>
+                    <li class="breadcrumb-item active">My Account</li>
+                </ul> -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End All Title Box -->
+
+<!-- Start My Account  -->
+<div class="my-account-box-main">
+    <div class="container">
+        <div class="my-account-page">
+            <div class="row">
+                <div class="col-lg-4 col-md-12">
+                    <div class="account-box" style="width: 320px; height: 300px;">
+                        <div class="service-box">
+                            <div class="service-icon">
+                                <a href="order"> <i class="fa fa-gift"></i> </a>
+                            </div>
+                            <div class="service-desc">
+                                <h4>My Order</h4>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-12">
+                    <div class="account-box" style="width: 320px; height: 300px;">
+                        <div class="service-box">
+                            <div class="service-icon">
+                                <a href="myacc"> <i class="fa fa-location-arrow"></i> </a>
+                            </div>
+                            <div class="service-desc">
+                                <h4>My Address</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12">
+                    <div class="account-box" style="width: 320px; height: 300px;">
+                        <div class="service-box">
+                            <div class="service-icon">
+                                <a href="mycart"> <i class="fa fa-shopping-bag"></i> </a>
+                            </div>
+                            <div class="service-desc">
+                                <h4>My Cart</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                
+            </div>
+            
+        </div>
+    </div>
+</div>
+<!-- End My Account -->
+{% endblock %}

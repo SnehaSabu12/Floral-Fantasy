@@ -1,0 +1,45 @@
+{% extends 'BASEE.html' %}
+{% block farmer %}active{% endblock %}
+{% load static %}
+{% block body %}
+    <link rel="stylesheet" href=
+    "https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <h1 style="text-align: center;color: orangered;">Payment Successful</h1>
+     <!-- End Side Menu -->
+    <!-- End Navigation -->
+    <div class="container mt-3 p-3">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>Order id</th>
+                <th>Product</th>
+                <th>Priceitm</th>
+                <th>Qty</th>
+                <th>Qtyprice</th>
+                <th>Farmer</th>
+                <th>Farmer-email</th>
+                <th>Total Price</th>
+                <th>Location</th>
+                <th>Pincode</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for i in pay %}                 
+              <tr>
+               
+                <th>{{i.order_id}}</th>
+                <th>{{i.pdctdetails}}</th>
+                <th>{{i.priceitm}}</th>
+                <th>{{i.qty}}</th>
+                <th>{{i.qtyprice}}</th>
+                <th>{{i.farmer}}</th>
+                <th>{{i.fremail}}</th>
+                <th>{{i.totalprice}}</th>
+                <th>{{i.location}}</th>
+                <th>{{i.pincode}}</th>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+    </div>
+{% endblock %}

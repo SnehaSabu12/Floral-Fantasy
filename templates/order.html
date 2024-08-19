@@ -1,0 +1,97 @@
+{% extends 'BASEE.html' %}
+{% block farmer %}active{% endblock %}
+{% load static %}
+{% block body %}
+    <title>Payment Successful</title>
+    <link rel="stylesheet" href=
+    "https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <!-- <h1 style="text-align: center;color: orangered;">Single Product</h1> -->
+     <!-- End Side Menu -->
+  <!-- End Navigation -->
+    <div class="container mt-3 p-3">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>Product</th>
+                <th>Order id</th>
+                <th>Username</th>
+                <th>Amount</th>
+                <th>Location</th>
+                <th>Pincode</th>
+                <th>Order Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for i in pay %}                 
+              <tr>
+                <th>{{i.product}}</th>
+                <th>{{i.order_id}}</th>
+                <th>{{i.usrdetail.name}}</th>
+                <th>{{i.amount}}</th>
+                <th>{{i.location}}</th>
+                <th>{{i.pincode}}</th>
+               
+                {% if i.deliverystatus == "pending" %}
+                <th><button class="btn btn-warning height-auto btn-sm"></a>PENDING</th>
+                {% else %}
+                <th><button  class="btn btn-success height-auto btn-sm">DELIVERED</a></th>
+                {% endif %}
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+         
+    </div>
+     <!-- End Side Menu -->
+  <!-- End Navigation -->
+  <!-- <h1 style="text-align: center;color: orangered;">Mycart Product</h1> -->
+    <div class="container mt-3 p-3">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <!-- <th>Product &nbsp&nbsp&nbsp
+                  Price/itm &nbsp&nbsp&nbsp
+                  Qty&nbsp&nbsp&nbsp
+                  Qty X Price&nbsp&nbsp&nbsp
+                  Farmer &nbsp&nbsp&nbsp
+                  Farmer-email
+                </th> -->
+                <th>Order id</th>
+                <th>Product</th>
+                <th>Priceitm</th>
+                <th>Qty</th>
+                <th>Qtyprice</th>
+                <th>Farmer</th>
+                <th>Farmer-email</th>
+                <th>Total Price</th>
+                <th>Location</th>
+                <th>Pincode</th>
+                <th>Order Status</th>
+
+              </tr>
+            </thead>
+            <tbody>
+              {% for i in ca %}                 
+              <tr>
+               
+                <th>{{i.order_id}}</th>
+                <th>{{i.pdctdetails}}</th>
+                <th>{{i.priceitm}}</th>
+                <th>{{i.qty}}</th>
+                <th>{{i.qtyprice}}</th>
+                <th>{{i.farmer}}</th>
+                <th>{{i.fremail}}</th>
+                <th>{{i.totalprice}}</th>
+                <th>{{i.location}}</th>
+                <th>{{i.pincode}}</th>
+                {% if i.status == "pending" %}
+                <th><button class="btn btn-warning height-auto btn-sm"></a>PENDING</th>
+                {% else %}
+                <th><button  class="btn btn-success height-auto btn-sm">DELIVERED</a></th>
+                {% endif %}
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+    </div>
+{% endblock %}

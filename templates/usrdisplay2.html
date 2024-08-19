@@ -1,0 +1,56 @@
+{% extends 'BASEE.html' %}
+{% block farmer %}active{% endblock %}
+{% load static %}
+{% block body %}
+
+ <!-- End Side Menu -->
+  <!-- End Navigation -->
+<div class="container mt-3 p-3 ">
+      <!-- <div class="card border border-2 border-secondary" style="margin:10px;width:330px;display: inline-block;vertical-align: top;height:600px;overflow: auto; "> -->
+        <!-- <div class="card border border-2 border-secondary" style="margin:10px;width:269px;display: inline-block;vertical-align: top;height:370px;overflow: auto; "> -->
+        <!-- <div class="card-body me-5"> -->
+          <form method="post">
+            {% csrf_token %}
+            <h1 class="card-title" style="color: rgb(240, 64, 64);"><b>{{i.name}}</b></h1>
+            <img class="card-img-top rounded mb-2" src="{{i.image.url}}" alt="Card image" style="width:250px;height: 220px;">
+            <h3><b> Product Details:</b></h3>
+            <h3 class="card-title"><b>{{i.description}}</b></h3>
+            <h1 class="card-title btn btn d-inline m-3 p-1" style="color:black;size: large;"><b>Price:{{i.price}}</b></h1><br><br>
+            <h4 class="fa fa-shopping-cart  "><b>Free shipping apply to all orders over RS.200.</b></h4>
+            <h4><b>Premium products ,handpicked specially for you </b></h4>
+            <h4><b>Availbility: In stock</b></h4><br><br>
+
+            <!-- <div class="input-group mb-3" style="max-width: 120px;">
+              <div class="input-group-prepend" >
+                <a href="minuscart/{{i.1}}" class="btn btn-outline-primary" style="font-size: 14px;">&minus;</a>
+              </div>
+              
+              <input type="text" class="form-control text-center" value="{{i.0}}" placeholder=""
+                aria-label="Example text with button addon" aria-describedby="button-addon1" disabled style="font-size: 15px;">
+             
+              <div class="input-group-append">
+                <a href="../pluscart/{{i.1}}" class="btn btn-outline-primary" style="font-size: 14px;">&plus;</a>
+              </div>
+            </div> -->
+          </li>
+          </ul>
+          <br>
+          {% if i.name in itms %}
+          <h2 class="card-title btn btn-warning d-inline m-3 p-1 mt-4"><a href="mycart" class="text-light">View Cart</a></h2>
+          {% else %}
+          <h2 class="card-title btn btn-warning d-inline m-3 p-1 mt-4"><a href="../addtocart/{{i.pk}}" class="text-light">Add To Cart</a></h2>
+          {% endif %}
+          <h2 class="card-title btn btn-warning d-inline m-3 p-1 mt-4"><a href="../buynow/{{i.pk}}" class="text-light">Buy Now</a></h2>
+
+            <!-- <h2 class="card-title btn btn-success d-inline m-3 p-2 mt-4" ><a href="addtocart/{{i.pk}}" class="text-light">Add To Cart</a></h2>
+            <h2 class="card-title btn btn-success d-inline m-3 p-2 mt-4"><a href="../buynow/{{i.pk}}" class="text-light">Buy Now</a></h2> -->
+
+            
+          </form>
+          <hr>
+        <!-- </div>
+      </div> -->
+  <br>
+</div>
+   
+{% endblock %}

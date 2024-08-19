@@ -1,0 +1,35 @@
+{% extends 'BASEE.html' %}
+{% block farmer %}active{% endblock %}
+{% load static %}
+{% block body %}
+      <!-- End Side Menu -->
+    
+    <!-- End Navigation -->
+
+   
+<div class="container mt-3 p-3">
+    {% for i in st %}
+  <div class="card border border-2 border-secondary" style="margin:10px;width:330px;display: inline-block;vertical-align: top;height:400px;overflow: auto;background-color:hsl(0, 0%, 100%); ">
+    <div class="card-body me-5">
+      <form method="post">
+        {% csrf_token %}
+      <h2 class="card-title" ><b> {{i.name}}</b></h2>
+      <a href="usrdisplay2/{{i.pk}}"><img class="card-img-top rounded mb-2" src="{{i.image.url}}" alt="Card image" style="width:100px"><br><br></a>
+      <!-- <h2 class="card-title">Description:  {{i.description}}</h2> -->
+      <h2 class="card-title btn btn-success d-inline m-3 p-1">Price: {{i.price}}</h2><br><br>
+      {% if i.name in itms %}
+      <h2 class="card-title btn btn-warning d-inline m-3 p-1 mt-4"><a href="mycart" class="text-light">View Cart</a></h2>
+      {% else %}
+      <h2 class="card-title btn btn-warning d-inline m-3 p-1 mt-4"><a href="addtocart/{{i.pk}}" class="text-light">Add To Cart</a></h2>
+      {% endif %}
+      <h2 class="card-title btn btn-warning d-inline m-3 p-1 mt-4"><a href="buynow/{{i.pk}}" class="text-light">Buy Now</a></h2>
+
+    </form>
+    </div>
+  </div>
+  {% endfor %}
+  <br>
+  
+ 
+</div>
+{% endblock %}

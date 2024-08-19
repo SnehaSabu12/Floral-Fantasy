@@ -1,0 +1,91 @@
+{% extends 'BASEE.html' %}
+{% block farmer %}active{% endblock %}
+{% load static %}
+{% block body %}
+    <title>Payment Successful</title>
+    <link rel="stylesheet" href=
+    "https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <!-- <h1 style="text-align: center;color: orangered;">Single Product</h1> -->
+     <!-- End Side Menu -->
+  <!-- End Navigation -->
+    <div class="container mt-3 p-3">
+      
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>Product</th>
+                <th>Username</th>
+                <th>Amount</th>
+                <th>Delivery Status</th>
+                <th>Change Status</th>
+
+
+              </tr>
+            </thead>
+            <tbody>
+              {% for i in data1 %}                 
+              <tr>
+                <th>{{i.product}}</th>
+                <th>{{i.usrdetail.name}}</th>
+                <th>{{i.amount}}</th>
+                <form action="delivery/{{i.id}}" method="post">
+                  {% csrf_token %}
+                  <th>{{i.deliverystatus}}</th>
+                <th><select name="status" id="">
+                 
+                  <option value="{{i.delistatus.0.0}}">{{i.delistatus.0.0}}</option>
+                  <option value="{{i.delistatus.1.0}}">{{i.delistatus.1.0}}</option>
+                 
+                </select> <button type="submit">Update Status</button></th>
+                <!-- <th><a href="" class="btn btn-danger height-auto btn-sm">{{i.deliverystatus}}...</i></a></th> -->
+                
+              </form>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+
+         
+        
+    
+    </div>
+     <!-- End Side Menu -->
+  <!-- End Navigation -->
+  <!-- <h1 style="text-align: center;color: orangered;">Mycart Product</h1> -->
+    <div class="container mt-3 p-3">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>Product</th>
+                <th>Username</th>
+                <th>Amount</th>
+                <th>Delivery Status</th>
+                <th>Change Status</th>
+
+              </tr>
+            </thead>
+            <tbody>
+              {% for i in data2 %}                 
+              <tr>
+               
+                <th>{{i.pitm}}</th>
+                <th>{{i.fuser}}</th>
+                <th>{{i.ptotal}}</th>
+                <form action="deliveries/{{i.id}}" method="post">
+                  {% csrf_token %}
+                  <th>{{i.deliverystatus}}</th>
+                <th><select name="status" id="">
+                 
+                  <option value="{{i.delistatus.0.0}}">{{i.delistatus.0.0}}</option>
+                  <option value="{{i.delistatus.1.0}}">{{i.delistatus.1.0}}</option>
+                 
+                </select> <button type="submit">Update Status</button></th>
+                <!-- <th><a href="" class="btn btn-danger height-auto btn-sm">{{i.deliverystatus}}...</i></a></th> -->
+                
+              </form>        
+                  </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+    </div>
+{% endblock %}

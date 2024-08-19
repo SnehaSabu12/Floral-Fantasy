@@ -1,0 +1,21 @@
+{% extends 'BASEE.html' %}
+{% block farmer %}active{% endblock %}
+{% load static %}
+{% block body %}
+
+ <!-- End Side Menu -->
+  <!-- End Navigation -->
+
+  {% if messages %}
+                <div class="messages">
+                {% for message in messages %}
+        
+                <div class="alert alert-danger alert-dismissible fade show">
+                    <button type="button" class="close" style="background-color:red;color: wheat;" data-dismiss="alert"></button>
+                    <strong>{% if message.tags %}{{message.tags}}!!!!-{% endif %}</strong>{{ message }}.
+                  </div>
+                    
+                {% endfor %}
+                </div>
+            {% endif %}
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'BASEE.html' %}
+{% block farmer %}active{% endblock %}
+{% load static %}
+{% block body %}
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <!-- Start Main Top -->
+    <!-- End Main Top -->
+
+    <h2 style="color: chocolate; margin-left: 400px;">Payment Successful</h2><br>
+    <!-- <div class="container mt-3 p-3"> -->
+
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>PRODUCT</th>
+                <th>ORDER ID</th>
+                <th>USERNAME</th>
+                <th>AMOUNT</th>
+                <th>LOCATION</th>
+                <th>PINCODE</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for i in pay %}                
+              <tr>
+                <th>{{i.product}}</th>
+                <th>{{i.order_id}}</th>
+                <th>{{i.usrdetail.name}}</th>
+                <th>{{i.amount}}</th>
+                <th>{{i.location}}</th>
+                <th>{{i.pincode}}</th>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+          
+    
+{% endblock %}

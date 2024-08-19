@@ -1,0 +1,76 @@
+{% extends 'usrbase.html' %}
+{% block farmer %}active{% endblock %}
+{% load static %}
+{% block body %}
+      <!-- End Side Menu -->
+    
+    <!-- End Navigation -->
+
+   
+<div class="container mt-3 p-3">
+    {% for i in st %}
+  <div class="card border border-2 border-secondary" style="margin:10px;width:330px;display: inline-block;vertical-align: top;height:350px;overflow: auto;background-color:rgb(248, 233, 233); ">
+    <div class="card-body me-5">
+      <form method="post">
+        {% csrf_token %}
+      <h2 class="card-title"><b> {{i.cartitm.name}}</b></h2>
+      <img class="card-img-top rounded mb-2" src="{{i.cartitm.image.url}}" alt="Card image" style="width:150px; height: 150px;">
+      <h2 class="card-title">Description:  {{i.cartitm.description}}</h2>
+      <h4>Price: {{i.tprice}}</h4><br>
+      <h4 >Quantity: {{i.count}}</h4><br>
+
+      <div class="input-group mb-3" style="max-width: 120px;">
+        <div class="input-group-prepend" >
+          <a href="minuscart/{{i.1}}" class="btn btn-outline-secondary" style="font-size: 14px;">&minus;</a>
+        </div>
+        
+        <input type="text" class="form-control text-center" value="{{i.0}}" placeholder=""
+          aria-label="Example text with button addon" aria-describedby="button-addon1" disabled style="font-size: 15px;">
+       
+        <div class="input-group-append">
+          <a href="pluscart/{{i.1}}" class="btn btn-outline-secondary" style="font-size: 15px;">&plus;</a>
+        </div>
+      </div>
+      <!-- <h2 class="card-title btn btn-warning d-inline m-3 p-1 mt-4"><a href="addtocart/{{i.pk}}" class="text-light">Add To Cart</a></h2> -->
+      
+    </form>
+    </div>
+  </div>
+  {% endfor %}
+  <br>
+  
+ 
+</div>
+{% endblock %}
+
+
+
+
+
+
+
+   <!-- End Side Menu -->
+    
+    <!-- End Navigation -->
+    <!-- <title>CART</title>
+    <style>
+        div{
+            color: black;
+            font-size: large;
+        }
+    </style>
+<div>
+<table border="2" style="margin-left:100px;">
+    <tr><th>NAME</th><th>IMAGE</th><th>DESCRIPTION</th><th>PRICE</th></tr>
+    {%for i in st %}
+    <tr>  
+        <td>{{i.cartitm.name}}</td>
+        <td><img class="card-img-top rounded mb-2" src="{{i.cartitm.image.url}}" alt="Card image" style="width:100px"></td>
+        <td>{{i.cartitm.description}}</td>
+        <td>{{i.cartitm.price}}</td>     
+    </tr>
+    {% endfor %}
+</table>
+</div>
+
+
